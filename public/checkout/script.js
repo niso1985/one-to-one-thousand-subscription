@@ -12,12 +12,14 @@ var createCheckoutSession = function (name_, email_, introducer_, plan_) {
             plan: plan_
         })
     }).catch((e) => {
+        document.getElementById("checkout-button-1").classList.remove("is-loading");
         alert("リクエスト中にエラーが発生しました。: " + e.message)
     }).then(handleResult);
 };
 
 // Handle any errors returned from Checkout
 var handleResult = function (result) {
+    document.getElementById("checkout-button-1").classList.remove("is-loading");
     if (result.error) {
         alert("エラーが発生しました: " + result.error.message);
     } else {
@@ -81,6 +83,7 @@ fetch("/setup")
                     alert("ご紹介者様を選択してください。");
                     return;
                 }
+                document.getElementById("checkout-button-1").classList.add("is-loading");
                 createCheckoutSession(name, email, introducer, plan1).then(function (data) {
                     // Call Stripe.js method to redirect to the new Checkout page
                     stripe
