@@ -6,39 +6,239 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>メンバーシップ購入</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <script defer src="./script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 
 <body>
 <section class="section">
+<!--
     <div class="container">
         <div class="columns is-mobile is-multiline has-text-black">
             <div class="column">
+            -->
+            <div class="container-fluid">
+                <!--ロゴ-->
                 <div class="columns is-multiline is-centered has-text-centered">
                     <div class="column is-two-fifth">
                         <figure class="image">
                             <img src="img/OnetoOneThousand_logo.png">
                         </figure>
-                        <p class="is-size-4 has-text-weight-bold">
-                            Ozzzne to One Thousand 2020年1期生専用決済ページ
-                        </p>
                     </div>
                 </div>
+
+                <hr class="red-line" style="margin-top: 0px; 
+                margin-bottom: 70px;
+                border: 0;
+                border-top: 10px solid #e00000; ">
+
+                <!--コミュニティ参加1000円の枠--> 
+                <div class="community">
+                    <div class="title-flame community-title">
+                        <h1 class="title">Home Music Community <span class=aks>One to One Thousand</span></h1>
+                    </div>
+                    <div class="flame community-text">
+                        <h3 class="lead">コミュニティ参加費用</h3>
+                        <h2 class="price">月額 1000円</h2>
+                        <p class="text">気軽に参加して、あなたらしさを<span class=aks>発掘し続けられる</span><span class=aks>仲間の一員になろう！</span></p>
+                        <a href="#" class="btn-enter btn-enter-green" id="community">> enter</a>
+                        <script>
+                            $('#community').click(function(){
+                            $('#courses').val('選択肢1');
+                            });
+                            
+                            $('a[href^=#]').click(function(){
+                                var target = $('#target').offset().top;
+                                $('html,body').animate({scrollTop:target});
+                            });  
+                        </script>
+                    </div>
+                </div>
+                
+                <!--"コミュニティ限定コンテンツ"のタイトル-->
+                <div class="heading">
+                    <h2 class="heading-subtitle">Community<br>＼ 限定コンテンツ ／</h2>
+                    <div class=caution style="text-align: center;">
+                        <p class="text-left" style="display:inline-block; padding: 0 10px;">※全てのコンテンツにコミュニティ参加費<span class=aks>(1000円）</span>が<span class=aks>含まれます。</span></p>
+                    </div>
+                </div>
+
+                <!--コンテンツ３種類-->
+                <div class="lesson-wrapper">
+                    <div class="row">
+                        <div class="lessons col-md-4 col-sm-12 col-xs-12">
+                            <div class="title-flame lessons-title">
+                                <h1 class="title">オンラインクリエイターサロン</h1>
+                            </div>
+                            <div class="flame lessons-text">
+                                <h2 class="price">月額 8000円</h2>
+                                <p class="text">日本トップクリエイターから<br>作曲を学ぼう！</p>
+                                <a href="#" class="btn-enter btn-enter-pink" id="online-creater">> enter</a>
+                                <script>
+                                    $('#online-creater').click(function(){
+                                    $('#courses').val('選択肢2');
+                                    });
+                                    
+                                    $('a[href^=#]').click(function(){
+                                        var target = $('#target').offset().top;
+                                        $('html,body').animate({scrollTop:target});
+                                    });  
+                                </script>
+                            </div>
+                        </div>
+                        <div class="lessons col-md-4 col-sm-12 col-xs-12">
+                            <div class="title-flame lessons-title">
+                                <h1 class="title">ボーカルトレーニング</h1>
+                            </div>
+                            <div class="flame lessons-text">
+                                <h2 class="price">月額 8000円</h2>
+                                <p class="text">たくさんの人の心を震わせる<br>ボーカリストになろう！</p>
+                                <a href="#" class="btn-enter btn-enter-pink" id="vocalist">> enter</a>
+                                <script>
+                                    $('#vocalist').click(function(){
+                                    $('#courses').val('選択肢3');
+                                    });
+                                    
+                                    $('a[href^=#]').click(function(){
+                                        var target = $('#target').offset().top;
+                                        $('html,body').animate({scrollTop:target});
+                                    });  
+                                </script>
+                            </div>
+                        </div>
+                        <div class="lessons col-md-4 col-sm-12 col-xs-12">
+                            <div class="title-flame lessons-title">
+                                <h1 class="title">オンラインクリエイターサロン<br>＋ボーカルトレーニング</h3>
+                            </div>
+                            <div class="flame lessons-text">
+                                <h2 class="price">月額 15000円</h2>
+                                <p class="text">自分を本当に表現できる<br>本物のアーティストになろう！</p>
+                                <a href="#" class="btn-enter btn-enter-pink" id="online-and-vocalist">> enter</a>
+                                <script>
+                                    $('#online-and-vocalist').click(function(){
+                                    $('#courses').val('選択肢4');
+                                    });
+                                    
+                                    $('a[href^=#]').click(function(){
+                                        var target = $('#target').offset().top;
+                                        $('html,body').animate({scrollTop:target});
+                                    });  
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!--期間限定キャンペーン-->   
+                <div class="lessons-campaign">
+                    <div class="title-flame lessons-campaign-title">
+                        <h1 class="title">期間限定キャンペーン</h1>
+                    </div>
+                    <div class="flame lessons-campaign-text">
+                        <div>
+                        <h3 class="campaign-lead">オンラインクリエイターサロン<span class=aks>＋ボーカルトレーニング</span></h3>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12" style="background:red; padding-left:0px; padding-right:0px;">
+                                
+                                <div style="background:white; border-radius:100px; margin:10px; min-height:10px; padding:20px; position: relative; margin-left: auto; margin-right: auto; max-width: 280px;">
+                                 <h2 class="campaign-price">12ヶ月まとめて決済<br>(実質月額<span class=text-pink>15,000</span>円)</h2>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        <h2 class="subtitle">《<span class=text-pink> 3 </span>つの特別特典 》</h2>
+                        
+
+                        <div class="row">
+                            <div class="lesson-campaign-bonus col-md-4 col-sm-12 col-xs-12">
+                                <div class="lesson-campaign-bonus-list">
+                                    <img src="img/gakkyokuteikyou_image.png">
+                                    <p class="text">日本トップクリエイターから<span class=aks>オリジナル楽曲無料提供</span></p>
+                                </div>
+                            </div>
+                            <div class="lesson-campaign-bonus col-md-4 col-sm-12 col-xs-12">
+                                <div class="lesson-campaign-bonus-list">
+                                    <img src="img/recording_image.png">
+                                    <p class="text">リリースレベル音源<span class=aks>レコーディングサポート</span></p>
+                                </div>
+                            </div>
+                            <div class="lesson-campaign-bonus col-md-4 col-sm-12 col-xs-12">
+                                <div class="lesson-campaign-bonus-list">
+                                    <img src="img/musicvideo_image.png">
+                                    <p class="text">オリジナルミュージックビデオの<span class=aks>無料提供</span></p>
+                                </div>
+                            </div>
+                        </div>
+                            <h4 class="campaign-text">３点総額<span class=aks><span class=yellow-text>50万円相当</span>が</span><span class=aks><span class=yellow-text>無料</span>プレゼント</span></span></h4>
+                            <div class=caution style="text-align: center;">
+                            <p class="text-left" style="display:inline-block; padding: 0 10px;">※作詞・メロディーはご自身で行って頂きます。<br>※MVは基本的にリリックビデオとなります。</p>
+                            </div>
+
+                            <a href="#" class="btn-enter btn-enter-red" id=campaign>> enter</a>
+                            
+                            <script>
+                                $('#campaign').click(function(){
+                                $('#courses').val('選択肢5');
+                                });
+                                
+                                $('a[href^=#]').click(function(){
+                                    var target = $('#target').offset().top;
+                                    $('html,body').animate({scrollTop:target});
+                                });  
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+ <!--入力画面-->
+            <div id='target'>
+                <h3 class="title-kessai" style="text-align: center; margin-top: 60px; margin-bottom: 30px;">One to One Thousand <span class=aks> 2020年１期生専用 </span><span class=aks>決済ページ</span></h3>
+            </div>
                 <div class="columns is-multiline is-centered">
                     <div class="column is-half">
                         <p class="content">
                             下記項目を記入して、決済登録を行ってください。毎月の自動決済となります。<br/>
                             ※使用できるカードブランドはVISA, Master, AMEXの3ブランドです。<br/>
                             ※カードの審査が不安な方は、下記アプリでデビットカード(プリペイドカード)を作成可能ですので、そちらをご利用ください。<br/>
-                            <a href="https://vandle.jp/" target="_blank">・バンドルカード</a>
+                            <a href="https://vandle.jp/" target="_blank">バンドルカード作成</a>
                         </p>
+                        <!--
                         <p class="context has-text-weight-bold">
                             価格：月額9,800円
+                        </p> -->
+                    </div>
+                </div>
+
+                <div class="columns is-multiline is-centered">
+                    <div class="column is-half">
+                        <p class="content">
+                            コース選択
+                        <div class="select">
+                            <select id="courses">
+                                <option>コースを選択してください</option>
+                                <option value="選択肢1">Home Music Community</option>
+                                <option value="選択肢2">オンラインクリエイターサロン</option>
+                                <option value="選択肢3">ボーカルトレーニング</option>
+                                <option value="選択肢4">オンラインクリエイターサロン＋ボーカルトレーニング</option>
+                                <option value="選択肢5">＜期間限定キャンペーン＞オンラインクリエイターサロン＋ボーカルトレーニング</option>
+                            </select>
+                        </div>
                         </p>
                     </div>
                 </div>
+                　　
+
+
                 <div class="columns is-multiline is-centered">
                     <div class="column is-half">
                         <p class="content">
@@ -46,6 +246,7 @@
                         </p>
                     </div>
                 </div>
+            
                 <div class="columns is-multiline is-centered">
                     <div class="column is-half">
                         <p class="content">
@@ -53,6 +254,7 @@
                         </p>
                     </div>
                 </div>
+
                 <div class="columns is-multiline is-centered">
                     <div class="column is-half">
                         <p class="content">
@@ -67,7 +269,7 @@
                 </div>
 
                 <div class="columns is-multiline is-centered">
-                    <div class="column is-half">
+                    <div class="column is-half has-text-centered">
                         <button
                                 style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
                                 id="checkout-button-1" role="link">
@@ -76,9 +278,14 @@
                     </div>
                 </div>
 
-            </div>
+                <hr class="red-line2" style="margin-top: 100px; 
+                margin-bottom: 70px;
+                border: 0;
+                border-top: 10px solid #e00000; ">
+
+      <!--      </div>
         </div>
-    </div>
+    </div> -->
 </section>
 </body>
 

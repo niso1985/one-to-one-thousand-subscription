@@ -1,0 +1,226 @@
+
+
+/*
+/*共通*/
+/**/
+span.aks{
+    display: inline-block;
+}
+
+h1.title{
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+    margin: 0 10px;
+    font-size: 19px;
+}
+
+/*レッスンコースの月額の文字*/
+h2.price{
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 10px;
+    color: #177244;
+}
+h3.lead{
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #177244;
+}
+p.text{
+    text-align: center;
+}
+
+/*enterボタン*/
+.btn-enter{
+    display: inline-block;
+    text-decoration: none;
+    color: #177244;
+    border: solid 2px;
+    border-radius: 3px;
+    transition: .4s;
+    padding: 0.3em 1em;
+    margin: 20px;
+}
+.btn-enter:hover{
+    color: white;
+    font-weight: bold;
+}
+
+.title-flame{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flame{
+    border: solid 15px;
+    border-top: 0px;
+    text-align: center;
+}
+
+/*各枠の色*/
+:root {
+    --community-flame-color: #177244;
+    --lesson-flame-color: #177244;
+    --lesson-campaign-flame-color: #f0252f;
+}
+
+/*------------------------------------------*/
+
+/*コミュニティ*/
+
+.community-title{
+    background-color: var(--community-flame-color);
+}
+
+/*コミュニティ詳細*/
+.community-text{
+    border-color: var(--community-flame-color);
+}
+
+.btn-enter-green{
+    border-color: var(--community-flame-color);
+}
+.btn-enter-green:hover{
+    background: var(--community-flame-color);
+}
+
+/*------------------------------------------*/
+/*Community限定コンテンツ見出し*/
+.heading{
+    padding: 10px;
+    margin-top: 40px;
+}
+h2.heading-subtitle{
+    font-size: 27px;
+    font-weight: bold;
+    color: var(--lesson-flame-color);
+    text-align: center;
+}
+.heading > p{
+    text-align: center;
+}
+
+/*------------------------------------------*/
+
+/*レッスン*/
+.lessons{
+    margin-bottom: 30px;
+}
+
+/*タイトルの文字*/
+.lessons-title{
+    background-color: var(--lesson-flame-color);
+}
+
+/*レッスンコース詳細*/
+.lessons-text{
+    border-color: var(--lesson-flame-color);
+}
+
+/*レッスンコース詳細（ボタン）*/
+.btn-enter-pink{
+    border-color: var(--lesson-flame-color);
+}
+.btn-enter-pink:hover{
+    background: var(--lesson-flame-color);
+}
+
+/*------------------------------------------*/
+
+
+/*期間限定キャンペーン*/
+.lessons-campaign-title{
+    background-color: var(--lesson-campaign-flame-color);
+}
+
+.lessons-campaign-text{
+    border-color: var(--lesson-campaign-flame-color);
+}
+
+h3.campaign-lead{
+    padding-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+h2.campaign-price{
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 10px;
+    color:black;
+}
+
+.lesson-campaign-bonus-list{
+    padding: 10px;
+}
+h2.subtitle{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+
+h4.campaign-text{
+    font-size: 30px;
+    font-weight: bolder;
+    background-color: var(--lesson-campaign-flame-color);
+    padding: 5px;
+    color: white;
+}
+
+span.text-pink{
+    color: rgb(235, 47, 119);
+    font-size: 30px;
+}
+span.yellow-text {
+    color: yellow;
+}
+
+.btn-enter-red{
+    display: inline-block;
+    text-decoration: none;
+    color: red;
+    border: solid 2px;
+    border-radius: 3px;
+    transition: .4s;
+    padding: 0.3em 1em;
+    margin: 20px;
+    border-color: var(--lesson-campaign-flame-color);
+}
+
+.btn-enter-red:hover{
+    background: var(--lesson-campaign-flame-color);
+}
+
+
+/*
+.lessons-campaign-text > ul{
+    padding-left: 0;
+    list-style: none;
+    display: inline-block;
+}
+.lessons-campaign-text > ul > li{
+    text-align: left;
+    position: relative;
+    padding-left: 15px;
+}
+/*チェックマーク*/ 
+/*
+.lessons-campaign-text >ul > li:before {
+    content: "";
+    position: absolute;
+    top: .4em;
+    left: 0;
+    -webkit-transform: rotate(50deg);
+    -ms-transform: rotate(50deg);
+    transform: rotate(50deg);
+    width: 7px;
+    height: 11px;
+    border-right: 3px solid #60e760;
+    border-bottom: 3px solid #60e760;
+}
+*/
