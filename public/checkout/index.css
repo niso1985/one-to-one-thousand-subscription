@@ -195,32 +195,3 @@ span.yellow-text {
 .btn-enter-red:hover{
     background: var(--lesson-campaign-flame-color);
 }
-
-
-/*
-.lessons-campaign-text > ul{
-    padding-left: 0;
-    list-style: none;
-    display: inline-block;
-}
-.lessons-campaign-text > ul > li{
-    text-align: left;
-    position: relative;
-    padding-left: 15px;
-}
-/*チェックマーク*/ 
-/*
-.lessons-campaign-text >ul > li:before {
-    content: "";
-    position: absolute;
-    top: .4em;
-    left: 0;
-    -webkit-transform: rotate(50deg);
-    -ms-transform: rotate(50deg);
-    transform: rotate(50deg);
-    width: 7px;
-    height: 11px;
-    border-right: 3px solid #60e760;
-    border-bottom: 3px solid #60e760;
-}
-*/
