@@ -48,7 +48,7 @@
                         <a href="#" class="btn-enter btn-enter-green" id="community">このコースに登録</a>
                         <script>
                             $('#community').click(function(){
-                            $('#courses').val('選択肢1');
+                            $('#courses').val('Home Music Community');
                             });
                             
                             $('a[href^=#]').click(function(){
@@ -80,7 +80,7 @@
                                 <a href="#" class="btn-enter btn-enter-pink" id="online-creater">このコースに登録</a>
                                 <script>
                                     $('#online-creater').click(function(){
-                                    $('#courses').val('選択肢2');
+                                    $('#courses').val('オンラインクリエイターサロン');
                                     });
                                     
                                     $('a[href^=#]').click(function(){
@@ -100,7 +100,7 @@
                                 <a href="#" class="btn-enter btn-enter-pink" id="vocalist">このコースに登録</a>
                                 <script>
                                     $('#vocalist').click(function(){
-                                    $('#courses').val('選択肢3');
+                                    $('#courses').val('ボーカルトレーニング');
                                     });
                                     
                                     $('a[href^=#]').click(function(){
@@ -120,7 +120,7 @@
                                 <a href="#" class="btn-enter btn-enter-pink" id="online-and-vocalist">このコースに登録</a>
                                 <script>
                                     $('#online-and-vocalist').click(function(){
-                                    $('#courses').val('選択肢4');
+                                    $('#courses').val('オンラインクリエイターサロン＋ボーカルトレーニング');
                                     });
                                     
                                     $('a[href^=#]').click(function(){
@@ -186,7 +186,7 @@
                             
                             <script>
                                 $('#campaign').click(function(){
-                                $('#courses').val('選択肢5');
+                                $('#courses').val('＜期間限定キャンペーン＞オンラインクリエイターサロン＋ボーカルトレーニング');
                                 });
                                 
                                 $('a[href^=#]').click(function(){
@@ -218,13 +218,13 @@
                         </p> -->
                     </div>
                 </div>
-
+<!--
                 <div class="columns is-multiline is-centered">
                     <div class="column is-half">
                         <p class="content">
                             コース選択（上記プランを選択してください）
                         <div class="select">
-                            <select disabled : true; id="courses">
+                            <select disabled : true; style="background-color: white;" >
                                 <option>（上記を選択すると自動的に入力されます）</option>
                                 <option value="選択肢1">Home Music Community</option>
                                 <option value="選択肢2">オンラインクリエイターサロン</option>
@@ -236,13 +236,24 @@
                         </p>
                     </div>
                 </div>
+            -->
+                <div class="columns is-multiline is-centered">
+                    <div class="column is-half">
+                        <p class="content">
+                            <label for="courses">コース選択（上記プランを選択してください）</label>
+                            <input id="courses" class="input" type="text" readonly placeholder="（上記を選択すると自動的に入力されます）">
+
+                        </p>
+                    </div>
+                </div>
                 　　
 
 
                 <div class="columns is-multiline is-centered">
                     <div class="column is-half">
                         <p class="content">
-                            名前 <input id="name-input" class="input" type="text" placeholder="名前">
+                            <label for="name-input">名前</label>
+                            <input id="name-input" class="input" type="text" placeholder="名前">
                         </p>
                     </div>
                 </div>
@@ -250,7 +261,8 @@
                 <div class="columns is-multiline is-centered">
                     <div class="column is-half">
                         <p class="content">
-                            メールアドレス <input id="email-input" class="input" type="text" placeholder="メールアドレス">
+                            <label for="email-input">メールアドレス</label>
+                            <input id="email-input" class="input" type="text" placeholder="メールアドレス">
                         </p>
                     </div>
                 </div>
@@ -258,7 +270,8 @@
                 <div class="columns is-multiline is-centered">
                     <div class="column is-half">
                         <p class="content">
-                            ご紹介者様選択
+                            <label for="introducer">ご紹介者様選択</label>
+                            
                         <div class="select">
                             <select id="introducer">
                                 <option>ご紹介者様を選択してください</option>
