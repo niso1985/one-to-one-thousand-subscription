@@ -57,20 +57,24 @@ fetch("/setup")
     .then(function (json) {
         var publicKey = json.publicKey;
         var stripe = Stripe(publicKey);
-        var plan1 = json.plan1;
-        var plan2 = json.plan2;
+        let plan = new Map()
+        plan.set("Home Music Community", json.plan1);
+        plan.set("オンラインクリエイターサロン", json.plan2);
+        plan.set("ボーカルトレーニング", json.plan3);
+        plan.set("オンラインクリエイターサロン＋ボーカルトレーニング", json.plan4);
+        plan.set("＜期間限定キャンペーン＞オンラインクリエイターサロン＋ボーカルトレーニング", json.plan5);
 
         // Setup event handler to create a Checkout Session when button is clicked
         document
             .getElementById("checkout-button-1")
             .addEventListener("click", function (evt) {
                 var name = document.getElementById("name-input").value
-                if (name == undefined || name == "") {
+                if (name === undefined || name === "") {
                     alert("名前を入力してください。");
                     return;
                 }
                 var email = document.getElementById("email-input").value
-                if (email == undefined || email == "") {
+                if (email === undefined || email === "") {
                     alert("メールアドレスを入力してください。");
                     return;
                 }
@@ -79,12 +83,17 @@ fetch("/setup")
                     return;
                 }
                 var introducer = document.getElementById("introducer").value
-                if (introducer == undefined || introducer == "ご紹介者様を選択してください") {
+                if (introducer === undefined || introducer === "ご紹介者様を選択してください") {
                     alert("ご紹介者様を選択してください。");
                     return;
                 }
+                var courses = document.getElementById("courses").value
+                if (courses === undefined || courses === "（上記を選択すると自動的に入力されます）") {
+                    alert("コースを選択してください。");
+                    return;
+                }
                 document.getElementById("checkout-button-1").classList.add("is-loading");
-                createCheckoutSession(name, email, introducer, plan1).then(function (data) {
+                createCheckoutSession(name, email, introducer, plan.get(courses)).then(function (data) {
                     // Call Stripe.js method to redirect to the new Checkout page
                     stripe
                         .redirectToCheckout({

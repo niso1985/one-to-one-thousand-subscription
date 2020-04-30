@@ -3,31 +3,30 @@ package controllers
 import com.stripe.Stripe
 import com.stripe.model.Customer
 import com.stripe.model.checkout.Session
-import com.stripe.param.{ CustomerCreateParams, CustomerUpdateParams }
 import com.stripe.param.checkout.SessionCreateParams
 import com.stripe.param.checkout.SessionCreateParams.{ PaymentMethodType, SubscriptionData }
+import com.stripe.param.{ CustomerCreateParams, CustomerUpdateParams }
 import com.typesafe.config._
 import dao.CustomerDAO
-import models.{ CustomerInfo, ErrorResponse, StripeInfo }
+import javax.inject.Inject
+import models.{ CustomerInfo, StripeInfo }
 import play.Logger
+import play.api.db.slick.DatabaseConfigProvider
 import play.api.libs.json.{ JsError, JsSuccess, Json }
 import play.api.mvc._
-import javax.inject.Inject
-import play.api.db.slick.DatabaseConfigProvider
-import slick.dbio.DBIOAction
 import slick.jdbc.JdbcProfile
 
-import scala.util.control.Exception._
-import scala.util.{ Failure, Success }
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
-import scala.util.control.NonFatal
 
 class Application @Inject() (cc: ControllerComponents, dp: DatabaseConfigProvider) extends AbstractController(cc) {
   val config: Config = ConfigFactory.load()
   val pubkey = config.getString("stripe.pubkey")
   val plan1 = config.getString("stripe.plan1")
   val plan2 = config.getString("stripe.plan2")
+  val plan3 = config.getString("stripe.plan3")
+  val plan4 = config.getString("stripe.plan4")
+  val plan5 = config.getString("stripe.plan5")
   val baseUrl = config.getString("baseurl")
 
   Stripe.apiKey = config.getString("stripe.secretkey")
@@ -35,7 +34,7 @@ class Application @Inject() (cc: ControllerComponents, dp: DatabaseConfigProvide
   val dbConfig = dp.get[JdbcProfile]
 
   def setup = Action {
-    val info = StripeInfo(pubkey, plan1, plan2)
+    val info = StripeInfo(pubkey, plan1, plan2, plan3, plan4, plan5)
     Ok(Json.toJson(info))
   }
 
@@ -102,13 +101,23 @@ class Application @Inject() (cc: ControllerComponents, dp: DatabaseConfigProvide
           .addPaymentMethodType(PaymentMethodType.CARD)
           .setCustomer(customer.getId)
 
-        val planBuild = new SubscriptionData.Item.Builder()
-          .setPlan(customerInfo.plan)
-          .build
-        val subscriptionData = new SubscriptionData.Builder()
-          .addItem(planBuild)
-          .build
-        builder.setSubscriptionData(subscriptionData)
+        if (customerInfo.plan == plan5) {
+          // plan5にone time purchase用の仮文字列を入れておく
+          val itemBuilder = new SessionCreateParams.LineItem.Builder
+          itemBuilder.setName("期間限定キャンペーン<オンラインクリエイターサロン＋ボーカルトレーニング>")
+            .setAmount(180000L)
+            .setCurrency("jpy")
+            .setQuantity(1L)
+          builder.addLineItem(itemBuilder.build())
+        } else {
+          val planBuild = new SubscriptionData.Item.Builder()
+            .setPlan(customerInfo.plan)
+            .build
+          val subscriptionData = new SubscriptionData.Builder()
+            .addItem(planBuild)
+            .build
+          builder.setSubscriptionData(subscriptionData)
+        }
 
         val createParams = builder.build
         val session = Session.create(createParams)
